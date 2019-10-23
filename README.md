@@ -1,6 +1,9 @@
 # azure-stack-cli-docker
 Azure CLI connected to Azure Stack Integrated System Docker Image.
 
+This image will perform the following operation.
+https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-version-profiles-azurecli2?view=azs-1908
+
 
 ## Docker build
 
@@ -12,4 +15,11 @@ docker build . -t tkeydll/azure-stack-cli:2.0.75 \
 --build-arg api_version=<your_api_version> \
 --build-arg http_proxy=http://<proxy_server>:<port> \
 --build-arg https_proxy=https://<proxy_server>:<port>
+```
+
+## Run container and Login AzureStack
+
+```bash
+> docker run -it tkeydll/azure-stack-cli:2.0.75
+bash-4.4# az login
 ```
