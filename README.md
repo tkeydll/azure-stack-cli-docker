@@ -2,6 +2,7 @@
 Azure CLI connected to Azure Stack Integrated System Docker Image.
 
 This image will perform the following operation.
+
 https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-version-profiles-azurecli2?view=azs-1908
 
 
