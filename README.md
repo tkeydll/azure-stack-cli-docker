@@ -13,7 +13,14 @@ docker build . -t tkeydll/azure-stack-cli:2.0.75 \
 --build-arg endpoint_resource_manager=https://management.<FQDN> \
 --build-arg suffix_storage_account=<FQDN> \
 --build-arg suffix_keyvault_dns=.vault.<FQDN> \
---build-arg api_version=<your_api_version> \
+--build-arg api_version=<your_api_version>
+```
+
+### If you use under proxy
+
+Add arguments in docker build.
+
+```bash
 --build-arg http_proxy=http://<proxy_server>:<port> \
 --build-arg https_proxy=https://<proxy_server>:<port>
 ```
