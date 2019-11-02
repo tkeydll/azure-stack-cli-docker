@@ -1,6 +1,7 @@
 FROM mcr.microsoft.com/azure-cli:2.0.75
 
 # Parameters
+ARG ca_cert_file=./root.pem
 ARG environment_name=AzureStackUser
 ARG endpoint_resource_manager=https://management.local.azurestack.external
 ARG suffix_storage_account=local.azurestack.external
@@ -12,8 +13,8 @@ ARG https_proxy=https://your.proxy.port
 
 # Add cacert.
 WORKDIR /root/azure-cli
-COPY ./root.pem .
-RUN cat root.pem >> /usr/local/lib/python3.6/site-packages/certifi/cacert.pem
+COPY ${ca_cert_file} .
+RUN cat ${ca_cert_file} >> /usr/local/lib/python3.6/site-packages/certifi/cacert.pem
 
 RUN export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 && \
     export ADAL_PYTHON_SSL_NO_VERIFY=1
