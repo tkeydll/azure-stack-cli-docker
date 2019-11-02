@@ -8,8 +8,6 @@ ARG suffix_storage_account=local.azurestack.external
 ARG suffix_keyvault_dns=.vault.local.azurestack.external
 ARG endpoint_vm_image_alias_doc=https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json
 ARG api_version=2019-03-01-hybrid
-ARG http_proxy=http://your.proxy:port
-ARG https_proxy=https://your.proxy.port
 
 # Add cacert.
 WORKDIR /root/azure-cli
