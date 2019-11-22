@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/azure-cli:2.0.75
+FROM mcr.microsoft.com/azure-cli:2.0.76
 
 # Parameters
 ARG ca_cert_file=./root.pem
