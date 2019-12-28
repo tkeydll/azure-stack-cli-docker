@@ -1,0 +1,19 @@
+image: docker:19.03-dind
+
+services:
+  - docker:19.03-dind
+
+variables:
+  DOCKER_HOST: tcp://docker:2375/
+  DOCKER_TLS_CERTDIR: ""
+  HTTPS_PROXY: $HTTPS_PROXY
+  IMAGE_NAME: tkeydll/azure-stack-cli
+  CLI_VERSION: 2.0.78
+
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - docker build -t $IMAGE_NAME:$CLI_VERSION . --build-arg ca_cert_url=$CA_CERT_URL
