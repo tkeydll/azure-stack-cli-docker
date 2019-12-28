@@ -6,7 +6,7 @@ services:
 variables:
   DOCKER_HOST: tcp://docker:2375/
   DOCKER_TLS_CERTDIR: ""
-  HTTPS_PROXY: $HTTPS_PROXY
+  #HTTPS_PROXY: $HTTPS_PROXY
   IMAGE_NAME: tkeydll/azure-stack-cli
   CLI_VERSION: 2.0.78
 
