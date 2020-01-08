@@ -9,11 +9,28 @@ variables:
   HTTPS_PROXY: $HTTPS_PROXY
   IMAGE_NAME: tkeydll/azure-stack-cli
   CLI_VERSION: 2.0.78
+  # If you use insecure registry, enable below.
+  # INSECURE_REGISTRY: $REGISTRY
 
 stages:
   - build
+  - publish
+  - notify
 
-build:
+build_job:
   stage: build
   script:
     - docker build -t $IMAGE_NAME:$CLI_VERSION . --build-arg ca_cert_url=$CA_CERT_URL
+
+publish_job:
+  stage: publish
+  script:
+    - docker push $REGISTRY/$IMAGE_NAME:$CLI_VERSION
+
+notify_job:
+  stage: notify
+  variables:
+    CONTENT_TYPE: "Content-Type: application/json"
+    NOTIFY_DATA: '{"title": "azure-stack-cli-docker is updated.", "text": "http://$REGISTRY/tag/$IMAGE_NAME/$CLI_VERSION/"}'
+  script:
+    - curl -X POST -H '$CONTENT_TYPE' --data '$NOTIFY_DATA' $NOTIFY_URL
