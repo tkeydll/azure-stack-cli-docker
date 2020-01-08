@@ -14,23 +14,13 @@ variables:
 
 stages:
   - build
-  - publish
-  - notify
 
 build_job:
   stage: build
-  script:
-    - docker build -t $IMAGE_NAME:$CLI_VERSION . --build-arg ca_cert_url=$CA_CERT_URL
-
-publish_job:
-  stage: publish
-  script:
-    - docker push $REGISTRY/$IMAGE_NAME:$CLI_VERSION
-
-notify_job:
-  stage: notify
   variables:
     CONTENT_TYPE: "Content-Type: application/json"
     NOTIFY_DATA: '{"title": "azure-stack-cli-docker is updated.", "text": "http://$REGISTRY/tag/$IMAGE_NAME/$CLI_VERSION/"}'
   script:
-    - curl -X POST -H '$CONTENT_TYPE' --data '$NOTIFY_DATA' $NOTIFY_URL
+    - docker build -t $IMAGE_NAME:$CLI_VERSION . --build-arg ca_cert_url=$CA_CERT_URL
+    - docker push $REGISTRY/$IMAGE_NAME:$CLI_VERSION
+    # - curl -X POST -H '$CONTENT_TYPE' --data '$NOTIFY_DATA' $NOTIFY_URL
