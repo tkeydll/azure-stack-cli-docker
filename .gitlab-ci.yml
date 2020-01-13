@@ -8,7 +8,7 @@ variables:
   DOCKER_TLS_CERTDIR: ""
   HTTPS_PROXY: $HTTPS_PROXY
   IMAGE_NAME: tkeydll/azure-stack-cli
-  CLI_VERSION: 2.0.79
+  CLI_VERSION: 2.0.80
   # If you use insecure registry, enable below.
   # INSECURE_REGISTRY: $REGISTRY
 
