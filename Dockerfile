@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/azure-cli:2.0.81
+FROM mcr.microsoft.com/azure-cli:2.1.0
 
 # Parameters
 ARG ca_cert_url
