@@ -1,5 +1,5 @@
 # azure-stack-cli-docker
-Azure CLI connected to Azure Stack Integrated System Docker Image.
+Azure CLI connected to Azure Stack Hub Integrated System Docker Image.
 
 This image will perform the following operation.
 
@@ -16,7 +16,7 @@ docker build . -t tkeydll/azure-stack-cli:2.6.0 \
 --build-arg api_version=<your_api_version>
 ```
 
-### If you use under proxy
+### If you use proxy
 
 Add arguments in docker build.
 
@@ -25,9 +25,11 @@ Add arguments in docker build.
 --build-arg https_proxy=https://<proxy_server>:<port>
 ```
 
-## Run container and Login AzureStack
+
+## Run container and Login Azure Stack Hub
 
 ```bash
-> docker run -it tkeydll/azure-stack-cli:2.6.0
+> docker run -it --rm tkeydll/azure-stack-cli:2.6.0
 bash-4.4# az login
 ```
+
