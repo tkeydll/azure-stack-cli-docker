@@ -9,7 +9,7 @@ https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-version-profiles-a
 ## Docker build
 
 ```bash
-docker build . -t tkeydll/azure-stack-cli:2.14.1 \
+docker build . -t tkeydll/azure-stack-cli:2.14.2 \
 --build-arg endpoint_resource_manager=https://management.<FQDN> \
 --build-arg suffix_storage_account=<FQDN> \
 --build-arg suffix_keyvault_dns=.vault.<FQDN> \
@@ -29,7 +29,7 @@ Add arguments in docker build.
 ## Run container and Login Azure Stack Hub
 
 ```bash
-> docker run -it --rm tkeydll/azure-stack-cli:2.14.1
+> docker run -it --rm tkeydll/azure-stack-cli:2.14.2
 bash-4.4# az login
 ```
 
