@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/azure-cli:2.16.0
+FROM mcr.microsoft.com/azure-cli:2.17.0
 
 # Parameters
 ARG ca_cert_url
@@ -18,7 +18,7 @@ RUN export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 && \
     export ADAL_PYTHON_SSL_NO_VERIFY=1
 
 # Register azure cli
-RUN az cloud register -n ${environment_name} \
+RUN az cloud register -n ${environment_name} 6
     --endpoint-resource-manager ${endpoint_resource_manager} \
     --suffix-storage-endpoint ${suffix_storage_account} \
     --suffix-keyvault-dns ${suffix_keyvault_dns} \
