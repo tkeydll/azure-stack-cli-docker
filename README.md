@@ -16,7 +16,7 @@ docker build . -t tkeydll/azure-stack-cli:2.24.2 \
 --build-arg api_version=<your_api_version>
 ```
 
-### If you use proxy
+### To use under proxy
 
 Add arguments in docker build.
 
