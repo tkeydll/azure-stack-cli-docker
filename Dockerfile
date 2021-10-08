@@ -12,7 +12,7 @@ ARG api_version=2019-03-01-hybrid
 # Add cacert.
 WORKDIR /root/azure-cli
 RUN wget -O cert.pem ${ca_cert_url}
-RUN cat cert.pem >> /usr/local/lib/python3.8/site-packages/certifi/cacert.pem
+RUN cat cert.pem >> /usr/local/lib/python3.9/site-packages/certifi/cacert.pem
 
 RUN export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 && \
     export ADAL_PYTHON_SSL_NO_VERIFY=1
